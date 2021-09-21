@@ -30,6 +30,7 @@ namespace BlazorUI
             services.AddRazorPages();
             services.AddServerSideBlazor(); // service for Blazor Server
             services.AddSingleton<WeatherForecastService>();
+            // add custom services
             services.AddTransient<ISqlDataAccess, SqlDataAccess>();
             services.AddTransient<IPeopleData, PeopleData>();
         }
@@ -57,6 +58,7 @@ namespace BlazorUI
             {
                 // SignalR connection between client and server
                 endpoints.MapBlazorHub();
+                // calls the cshtml razor page.
                 endpoints.MapFallbackToPage("/_Host");
             });
         }
