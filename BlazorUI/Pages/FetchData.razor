@@ -39,6 +39,7 @@ else
 @code {
     private WeatherForecast[] forecasts;
 
+    // page events...
     protected override async Task OnInitializedAsync()
     {
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
