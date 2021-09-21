@@ -1,4 +1,6 @@
 using BlazorUI.Data;
+using DataAccessLibrary.Implementation;
+using DataAccessLibrary.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +30,8 @@ namespace BlazorUI
             services.AddRazorPages();
             services.AddServerSideBlazor(); // service for Blazor Server
             services.AddSingleton<WeatherForecastService>();
+            services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+            services.AddTransient<IPeopleData, PeopleData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
